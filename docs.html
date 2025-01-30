@@ -26,7 +26,7 @@
                 </div>
 
                 <button class="menu-toggle" onclick="toggleMenu()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1 <boltAction type="file" filePath="docs.html">="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
             </nav>
         </header>
@@ -39,14 +39,16 @@
                     <aside class="docs-sidebar">
                         <nav>
                             <ul>
-                                <li><a href="#what-is-vitalgaze" class="active">What is VitalGaze?</a></li>
+                                <li><a href="#overview" class="active">Overview</a></li>
                                 <li><a href="#purpose">Purpose</a></li>
+                                <li><a href="#pre-reqs">Pre-reqs</a></li>
                                 <li><a href="#python-basics">Python Basics</a></li>
                                 <li><a href="#libraries">Libraries & Tools</a></li>
                                 <li><a href="#installation">Installation</a></li>
-                                <li><a href="#modules">Modules</a></li>
                                 <li><a href="#features">Features</a></li>
-                                <li><a href="#test-cases">Test Cases</a></li>
+                                <li><a href="#modules">Modules</a></li>
+                                <li><a href="#steps">Steps</a></li>
+                                <li><a href="#use-cases">Use Cases</a></li>
                                 <li><a href="#tech-stack">Tech Stack</a></li>
                                 <li><a href="#troubleshooting">Troubleshooting</a></li>
                             </ul>
@@ -55,58 +57,146 @@
 
                     <!-- Content -->
                     <div class="docs-content">
-                        <section id="what-is-vitalgaze">
-                            <h1>What is VitalGaze?</h1>
-                            <p>VitalGaze is a next-generation health monitoring system that combines the power of AI, facial recognition, eye-tracking, and thermal imaging to detect various health and behavioral patterns. Whether it's detecting fatigue, signs of alcohol influence, or infection symptoms, VitalGaze provides holistic health insights for individuals and organizations.</p>
-                        </section>
-
-                        <section id="key-features">
+                        <section id="overview">
+                            <h1>Overview</h1>
+                            <p>VitalGaze is a next-generation health monitoring system that combines the power of AI, facial recognition, eye-tracking, and thermal imaging to deliver real-time, non-invasive diagnostics. Whether it’s detecting fatigue, signs of alcohol influence, or infection symptoms, VitalGaze provides holistic health insights for individuals and organizations.</p>
                             <h2>Key Features</h2>
                             <ul>
-                                <li>Non-invasive and real-time monitoring</li>
-                                <li>AI-powered insights based on behavioral and physiological data</li>
-                                <li>Suitable for various applications, including workplaces and public health</li>
+                                <li>Non-invasive and real-time monitoring.</li>
+                                <li>AI-powered insights based on behavioral and physiological data.</li>
+                                <li>Suitable for various applications, including workplaces and public health.</li>
                             </ul>
+                        </section>
+
+                        <section id="purpose">
+                            <h2>Purpose</h2>
+                            <p>The primary goal of VitalGaze is to demonstrate how advanced technologies can:</p>
+                            <ul>
+                                <li>Enhance health monitoring through automation and precision.</li>
+                                <li>Replace traditional, invasive diagnostics with efficient and seamless solutions.</li>
+                                <li>Provide value in scenarios requiring quick and accurate health assessments.</li>
+                            </ul>
+                        </section>
+
+                        <section id="pre-reqs">
+                            <h2>Pre-reqs</h2>
+                            <p>To successfully utilize VitalGaze, the following are required:</p>
+                            <h3>Basic Understanding of Python:</h3>
+                            <ul>
+                                <li>Variables: Used to store data.</li>
+                                <li>Loops: For repeated tasks.</li>
+                                <li>Functions: For modular coding.</li>
+                            </ul>
+                            <h3>Necessary Hardware:</h3>
+                            <ul>
+                                <li>Infrared thermal sensor for temperature analysis.</li>
+                                <li>High-resolution webcam for capturing facial and eye data.</li>
+                            </ul>
+                        </section>
+
+                        <section id="python-basics">
+                            <h2>Python Basics</h2>
+                            <p>Python is essential for implementing VitalGaze. Beginners can quickly learn:</p>
+                            <ul>
+                                <li><strong>Variables:</strong> Assign and store values, e.g., <code>x = 10</code>.</li>
+                                <li><strong>Loops:</strong> Perform iterations, e.g., <code>for i in range(5)</code>.</li>
+                                <li><strong>Functions:</strong> Create reusable code, e.g., <code>def greet(): print("Hello")</code>.</li>
+                            </ul>
+                            <p>If you are new to Python, consider resources like <a href="https://docs.python.org/3/" target="_blank">Python Official Documentation</a>.</p>
+                        </section>
+
+                        <section id="libraries">
+                            <h2>Libraries & Tools</h2>
+                            <p>Key libraries used in VitalGaze include:</p>
+                            <ul>
+                                <li><strong>OpenCV:</strong> For image and video processing.</li>
+                                <li><strong>TensorFlow:</strong> For machine learning models.</li>
+                                <li><strong>Numpy:</strong> For numerical computations.</li>
+                                <li><strong>Dlib:</strong> For facial landmark detection.</li>
+                            </ul>
+                            <p>To install these libraries:</p>
+                            <div class="code-block">
+                                <pre><code>pip install opencv-python tensorflow numpy dlib</code></pre>
+                            </div>
                         </section>
 
                         <section id="installation">
                             <h2>Installation</h2>
+                            <h3>Step 1: Install Python</h3>
+                            <p>Download and install Python 3.7+ from <a href="https://www.python.org/" target="_blank">python.org</a>.</p>
+                            <p>Verify installation with <code>python --version</code>.</p>
+                            <h3>Step 2: Install Required Libraries</h3>
+                            <p>Use pip:</p>
                             <div class="code-block">
-                                <pre><code>
-# Clone the repository
-git clone https://github.com/yourusername/vitalgaze.git
-
-# Navigate to the project directory
-cd vitalgaze
-
-# Install required packages
-pip install -r requirements.txt
-
-# Run the application
-python run.py
-                                </code></pre>
+                                <pre><code>pip install opencv-python tensorflow numpy dlib pyautogui</code></pre>
                             </div>
+                            <h3>Step 3: Clone the Project</h3>
+                            <div class="code-block">
+                                <pre><code>git clone https://github.com/YourRepo/VitalGaze.git
+cd VitalGaze</code></pre>
+                            </div>
+                            <h3>Step 4: Set Up Hardware</h3>
+                            <p>Ensure your camera and thermal sensors are connected.</p>
                         </section>
 
-                        <section id="usage">
-                            <h2>Basic Usage</h2>
-                            <div class="code-block">
-                                <pre><code>
-from vitalgaze import VitalGaze
+                        <section id="features">
+                            <h2>Features</h2>
+                            <p>VitalGaze provides:</p>
+                            <ul>
+                                <li><strong>Facial Recognition:</strong> For behavioral analysis.</li>
+                                <li><strong>Thermal Imaging:</strong> To measure temperature changes.</li>
+                                <li><strong>AI-Powered Insights:</strong> Processes data for accurate results.</li>
+                                <li><strong>Holistic Monitoring:</strong> Combines behavioral and physiological data.</li>
+                            </ul>
+                        </section>
 
-# Initialize the system
-vg = VitalGaze()
+                        <section id="modules">
+                            <h2>Modules</h2>
+                            <ol>
+                                <li><strong>Camera Capture Module:</strong> Captures real-time video feed using OpenCV.</li>
+                                <li><strong>Behavioral Analysis Module:</strong> Detects changes like droopy eyelids or pupil dilation.</li>
+                                <li><strong>Thermal Analysis Module:</strong> Processes infrared sensor data for temperature diagnostics.</li>
+                                <li><strong>AI Decision-Making Module:</strong> Correlates captured data to produce actionable insights.</li>
+                            </ol>
+                        </section>
 
-# Start monitoring
-vg.run_start()
+                        <section id="steps">
+                            <h2>Steps</h2>
+                            <ol>
+                                <li>Install Python and libraries.</li>
+                                <li>Connect your camera and thermal sensor.</li>
+                                <li>Clone the project repository.</li>
+                                <li>Execute the Python script.</li>
+                                <li>Follow on-screen instructions to calibrate for optimal performance.</li>
+                            </ol>
+                        </section>
 
-# Get health insights
-insights = vg.get_insights()
+                        <section id="use-cases">
+                            <h2>Use Cases</h2>
+                            <ul>
+                                <li><strong>Accessibility:</strong> Hands-free device control for differently-abled users.</li>
+                                <li><strong>Public Health:</strong> Screening for signs of infections in crowds.</li>
+                                <li><strong>Workplace Safety:</strong> Monitoring worker fatigue or sobriety in sensitive environments.</li>
+                            </ul>
+                        </section>
 
-# Stop monitoring
-vg.stop()
-                                </code></pre>
-                            </div>
+                        <section id="tech-stack">
+                            <h2>Tech Stack</h2>
+                            <ul>
+                                <li><strong>Frontend:</strong> HTML, Flutter (if web or mobile interface needed).</li>
+                                <li><strong>Backend:</strong> Python with TensorFlow and OpenCV.</li>
+                                <li><strong>Hardware:</strong> Infrared sensors, webcams.</li>
+                                <li><strong>Databases:</strong> Facial landmark data from open-source resources.</li>
+                            </ul>
+                        </section>
+
+                        <section id="troubleshooting">
+                            <h2>Troubleshooting</h2>
+                            <p><strong>Common Issues:</strong></p>
+                            <ul>
+                                <li><strong>Webcam not detected:</strong> Ensure it's properly connected.</li>
+                                <li><strong>Inaccurate results:</strong> Recalibrate the camera and check lighting.</li>
+                            </ul>
                         </section>
                     </div>
                 </div>
@@ -145,6 +235,7 @@ vg.stop()
             </div>
         </footer>
     </div>
+    <div id="line-cursor"></div>
 
     <script src="script.js"></script>
 </body>

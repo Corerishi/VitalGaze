@@ -14,3 +14,12 @@ document.addEventListener('click', (event) => {
         navLinks.classList.remove('active');
     }
 });
+
+// Add this to your existing script.js
+
+// Line Cursor Logic
+document.addEventListener('scroll', () => {
+    const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    const lineCursor = document.getElementById('line-cursor');
+    lineCursor.style.transform = `translateY(${scrollPercentage}%)`;
+});
