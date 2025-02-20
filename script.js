@@ -161,3 +161,58 @@ function updateActiveSection() {
         }
     });
 }
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDmG1ldZE2aieir_s0c1OhsBWL4b6UJXds",
+    authDomain: "vitalgaze-7084f.firebaseapp.com",
+    projectId: "vitalgaze-7084f",
+    storageBucket: "vitalgaze-7084f.firebasestorage.app",
+    messagingSenderId: "282183145389",
+    appId: "1:282183145389:web:7ef2c29138e0cd21c2b324"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const userProfile = document.getElementById("user-profile");
+    const userNameDisplay = document.getElementById("user-name");
+    const loginLink = document.getElementById("login-link");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    // Listen for authentication state changes
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is logged in
+            userProfile.style.display = "block"; // Show user info
+            loginLink.style.display = "none"; // Hide login button
+
+            // Display user's name or email
+            userNameDisplay.textContent = user.displayName || user.email;
+
+        } else {
+            // User is logged out
+            userProfile.style.display = "none"; // Hide user info
+            loginLink.style.display = "block"; // Show login button
+        }
+    });
+
+    // Logout function
+    logoutBtn.addEventListener("click", () => {
+        signOut(auth)
+            .then(() => {
+                alert("Signed out successfully!");
+                window.location.href = "index.html"; // Redirect to login page
+            })
+            .catch((error) => {
+                console.error("Error signing out:", error);
+            });
+    });
+});
+
+
