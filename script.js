@@ -1,45 +1,42 @@
 // Typewriter effect
+const words = ['Work Place', 'Personal Space'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
 function typeWriter() {
-    const element = document.querySelector('.typewriter');
-    if (!element) return;
+    const typewriterElement = document.querySelector('.typewriter-text');
+    if (!typewriterElement) return;
 
-    const words = JSON.parse(element.dataset.text);
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let currentWord = '';
+    const currentWord = words[wordIndex];
+    const currentText = currentWord.substring(0, charIndex);
+    typewriterElement.textContent = currentText;
 
-    function type() {
-        if (wordIndex === words.length) wordIndex = 0;
-        
-        const word = words[wordIndex];
-
-        if (isDeleting) {
-            currentWord = word.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            currentWord = word.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        element.textContent = currentWord;
-
-        let typeSpeed = isDeleting ? 100 : 200;
-
-        if (!isDeleting && charIndex === word.length) {
-            typeSpeed = 2000; // Pause at end of word
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            wordIndex++;
-            isDeleting = false;
-            typeSpeed = 500; // Pause before starting new word
-        }
-
-        setTimeout(type, typeSpeed);
+    if (!isDeleting && charIndex < currentWord.length) {
+        // Writing
+        charIndex++;
+        setTimeout(typeWriter, 200);
+    } else if (isDeleting && charIndex > 0) {
+        // Deleting
+        charIndex--;
+        setTimeout(typeWriter, 100);
+    } else if (!isDeleting && charIndex === currentWord.length) {
+        // End of word
+        isDeleting = true;
+        setTimeout(typeWriter, 2000);
+    } else {
+        // Start next word
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeWriter, 500);
     }
-
-    type();
 }
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    typeWriter(); // Start typewriter effect
+    setupNextSectionButton();
+});
 
 
 // Next section navigation
