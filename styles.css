@@ -233,6 +233,55 @@ body {
 }
 
 
+/* Center Camera Section */
+#camera-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+    height: 480px;
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+#video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Capture & Analyze Button */
+#capture-btn {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#capture-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #0086cc);
+    transform: scale(1.05);
+}
+
+
 
 /* Line Cursor Styles */
 #line-cursor {

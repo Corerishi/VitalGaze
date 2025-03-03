@@ -1,3 +1,8 @@
+// Ensure this script runs as a module
+export {};
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const words = ["Work Space", "Safe Place"];
     let wordIndex = 0;
@@ -27,8 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    typeWriter(); // Start animation
+    // Ensure function is defined before calling it
+    typeWriter();
 });
+
+
 
 
 
@@ -102,7 +110,6 @@ window.addEventListener('resize', updateLineCursor); // Update on window resize
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
-    typeWriter();
     setupNextSectionButton();
 
     // Update line cursor on scroll
@@ -224,5 +231,64 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+const video = document.getElementById("video");
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+const resultDiv = document.getElementById("result");
+
+// Start Webcam
+async function startWebcam() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        video.play();
+    } catch (error) {
+        console.error("Error accessing webcam: ", error);
+    }
+}
+
+// Capture Frame and Send to Backend
+async function captureFrame() {
+    if (!video.videoWidth || !video.videoHeight) return;
+
+    // Set canvas size to match video
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    
+    // Draw video frame to canvas
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Convert canvas image to Base64
+    const frameData = canvas.toDataURL("image/jpeg");
+
+    // Send frame to Flask backend
+    try {
+        const response = await fetch("http://127.0.0.1:5000/video_feed", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ frame: frameData }),
+        });
+
+        const data = await response.json();
+        if (data.status === "success") {
+            resultDiv.innerText = `Analysis Result: ${data.result}`;
+        } else {
+            console.error("Error from server: ", data.message);
+        }
+    } catch (error) {
+        console.error("Error sending frame: ", error);
+    }
+}
+
+// Start webcam when page loads
+window.onload = () => {
+    if (window.location.pathname.endsWith("project.html")) {
+        startWebcam();
+        setInterval(captureFrame, 2000); // Send frames every 2 seconds
+    }
+};
+
+
 
 

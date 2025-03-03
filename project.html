@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VitalGaze - AI-Powered Health Monitoring</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="script.js"></script>
 </head>
@@ -36,6 +38,15 @@
                 </button>
             </nav>
         </header>
+
+        <section id="camera-section">
+            <h2>Real-Time Face Analysis</h2>
+            <div class="video-container">
+                <video id="video" autoplay></video>
+            </div>
+            <button id="capture-btn">Capture & Analyze</button>
+            <p id="result"></p>
+        </section>
 
     
 
@@ -72,6 +83,7 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+
 </body>
 </html>
