@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - VitalGaze</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script type="module" src="../static/script.js"></script>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <div class="logo">
+                    <h1>VitalGaze</h1>
+                </div>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="{{ url_for('index')}}">Home</a>
+                    <a href="{{ url_for('project')}}">Project</a>
+                    <a href="{{ url_for('docs')}}" class="active">Docs</a>
+                    <a href="{{ url_for('about')}}">About Us</a>
+                    <a href="https://github.com/chirag1689/VitalGaze" class="github-icon" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    </a>
+                    <a href="{{ url_for('login')}}">Log In</a>
+                    <div id="user-profile" style="display: none;">
+                        <span id="user-name">Loading...</span>
+                        <button id="logout-btn">Logout</button>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </nav>
+        </header>
+
+        
+
+        <!-- Main Content -->
+        <main class="docs-page">
+            <div class="container">
+                <div class="docs-layout">
+                    <!-- Sidebar -->
+                    <aside class="docs-sidebar">
+                        <h2>Table of Contents</h2>
+                        <nav>
+                            <ul>
+                                <li><a href="#overview" class="toc-link">Overview</a></li>
+                                <li><a href="#purpose" class="toc-link">Purpose</a></li>
+                                <li><a href="#pre-reqs" class="toc-link">Pre-requisites</a></li>
+                                <li><a href="#python-basics" class="toc-link">Python Basics</a></li>
+                                <li><a href="#libraries" class="toc-link">Libraries & Tools</a></li>
+                                <li><a href="#installation" class="toc-link">Installation</a></li>
+                                <li><a href="#features" class="toc-link">Features</a></li>
+                                <li><a href="#modules" class="toc-link">Modules</a></li>
+                                <li><a href="#steps" class="toc-link">Steps</a></li>
+                                <li><a href="#use-cases" class="toc-link">Use Cases</a></li>
+                                <li><a href="#tech-stack" class="toc-link">Tech Stack</a></li>
+                                <li><a href="#troubleshooting" class="toc-link">Troubleshooting</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+
+                    <!-- Content -->
+                    
+                    <div class="docs-content">
+                        
+                        <section id="overview">
+                            <h1>Overview</h1>
+                            <p>VitalGaze is a next-generation health monitoring system that combines the power of AI, facial recognition, eye-tracking, and thermal imaging to deliver real-time, non-invasive diagnostics. Whether it's detecting fatigue, signs of alcohol influence, or infection symptoms, VitalGaze provides holistic health insights for individuals and organizations.</p>
+                            <h2>Key Features</h2>
+                            <ul>
+                                <li>Non-invasive and real-time monitoring</li>
+                                <li>AI-powered insights based on behavioral and physiological data</li>
+                                <li>Suitable for various applications, including workplaces and public health</li>
+                            </ul>
+                        </section>
+
+                        <section id="purpose">
+                            <h2>Purpose</h2>
+                            <p>The primary goal of VitalGaze is to demonstrate how advanced technologies can:</p>
+                            <ul>
+                                <li>Enhance health monitoring through automation and precision</li>
+                                <li>Replace traditional, invasive diagnostics with efficient and seamless solutions</li>
+                                <li>Provide value in scenarios requiring quick and accurate health assessments</li>
+                            </ul>
+                        </section>
+
+                        <section id="pre-reqs">
+                            <h2>Pre-requisites</h2>
+                            <h3>Basic Understanding of Python:</h3>
+                            <ul>
+                                <li>Variables and data types</li>
+                                <li>Control structures (if/else, loops)</li>
+                                <li>Functions and modules</li>
+                            </ul>
+                            <h3>Hardware Requirements:</h3>
+                            <ul>
+                                <li>Infrared thermal sensor</li>
+                                <li>High-resolution webcam</li>
+                                <li>Computer with Python 3.7+</li>
+                            </ul>
+                        </section>
+
+                        <section id="python-basics">
+                            <h2>Python Basics</h2>
+                            <p>Essential Python concepts for VitalGaze:</p>
+                            <div class="code-block">
+                                <pre><code># Variables and Data Types
+temperature = 98.6  # float
+is_normal = True   # boolean
+
+# Functions
+def check_temperature(temp):
+    return 97.0 <= temp <= 99.0
+
+# Using Libraries
+import cv2
+import numpy as np</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="libraries">
+                            <h2>Libraries & Tools</h2>
+                            <ul>
+                                <li><strong>OpenCV:</strong> Image and video processing</li>
+                                <li><strong>TensorFlow:</strong> Machine learning models</li>
+                                <li><strong>NumPy:</strong> Numerical computations</li>
+                                <li><strong>Dlib:</strong> Facial landmark detection</li>
+                            </ul>
+                            <div class="code-block">
+                                <pre><code>pip install opencv-python tensorflow numpy dlib</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="installation">
+                            <h2>Installation</h2>
+                            <ol>
+                                <li>Install Python 3.7+</li>
+                                <li>Install required libraries</li>
+                                <li>Clone the repository</li>
+                                <li>Configure hardware</li>
+                                <li>Run initial setup</li>
+                            </ol>
+                        </section>
+
+                        <section id="features">
+                            <h2>Features</h2>
+                            <ul>
+                                <li>Real-time facial analysis</li>
+                                <li>Temperature monitoring</li>
+                                <li>Eye movement tracking</li>
+                                <li>Behavioral pattern recognition</li>
+                                <li>Alert system for anomalies</li>
+                            </ul>
+                        </section>
+
+                        <section id="modules">
+                            <h2>Modules</h2>
+                            <ul>
+                                <li><strong>Camera Module:</strong> Video capture and processing</li>
+                                <li><strong>Analysis Module:</strong> Data interpretation</li>
+                                <li><strong>Alert Module:</strong> Notification system</li>
+                                <li><strong>Storage Module:</strong> Data logging</li>
+                            </ul>
+                        </section>
+
+                        <section id="steps">
+                            <h2>Implementation Steps</h2>
+                            <ol>
+                                <li>Set up the development environment</li>
+                                <li>Configure hardware connections</li>
+                                <li>Initialize the system</li>
+                                <li>Calibrate sensors</li>
+                                <li>Run the application</li>
+                            </ol>
+                        </section>
+
+                        <section id="use-cases">
+                            <h2>Use Cases</h2>
+                            <ul>
+                                <li>Workplace safety monitoring</li>
+                                <li>Healthcare screening</li>
+                                <li>Public space surveillance</li>
+                                <li>Educational institution monitoring</li>
+                            </ul>
+                        </section>
+
+                        <section id="tech-stack">
+                            <h2>Tech Stack</h2>
+                            <ul>
+                                <li><strong>Backend:</strong> Python</li>
+                                <li><strong>AI/ML:</strong> TensorFlow, OpenCV</li>
+                                <li><strong>Data Processing:</strong> NumPy, Pandas</li>
+                                <li><strong>Hardware Interface:</strong> PySerial</li>
+                            </ul>
+                        </section>
+
+                        <section id="troubleshooting">
+                            <h2>Troubleshooting</h2>
+                            <h3>Common Issues:</h3>
+                            <ul>
+                                <li><strong>Camera not detected:</strong> Check USB connection and permissions</li>
+                                <li><strong>Sensor errors:</strong> Verify hardware compatibility</li>
+                                <li><strong>Performance issues:</strong> Check system requirements</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-brand">
+                    <h2>VitalGaze</h2>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="/terms">Terms and Service</a>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/security">Security</a>
+                    <a href="/about">About</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+
+                <div class="copyright">
+                    © 2024 VitalGaze All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../static/script.js"></script>
+    <button id="next-section" class="next-section-btn" aria-label="Next Section">
+        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+    </button>
+</body>
+</html>

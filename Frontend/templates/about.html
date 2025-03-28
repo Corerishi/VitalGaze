@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - VitalGaze</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script type="module" src="../static/script.js"></script>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="header">
+            <nav class="container">
+                <div class="logo">
+                    <h1>VitalGaze</h1>
+                </div>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="{{ url_for('index')}}">Home</a>
+                    <a href="{{ url_for('project')}}">Project</a>
+                    <a href="{{ url_for('docs')}}">Docs</a>
+                    <a href="{{ url_for('about')}}" class="active">About Us</a>
+                    <a href="https://github.com/chirag1689/VitalGaze" class="github-icon" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    </a>
+                    <a href="{{ url_for('login')}}">Log In</a>
+                    <div id="user-profile" style="display: none;">
+                        <span id="user-name">Loading...</span>
+                        <button id="logout-btn">Logout</button>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="about-page">
+            <div class="container">
+                <section class="about-section">
+                    <h1>About VitalGaze</h1>
+                    <div class="about-content">
+                        <div class="project-description">
+                            <h2>Why We Chose This Project?</h2>
+                            <p>Our growing system project began with the realization that the world of AI is still missing effective health monitoring solutions in workplace and educational institutions. With the up-rising concerns about individuals unknowingly being under the influence of substances or experiencing untreated health issues, we saw an opportunity to leverage cutting-edge technology to foster safer environments. Motivated by the potential to provide a proactive solution, reinforced by the profound impact on public safety and well-being, we embarked on this project to develop a system that can offer real-time insights and early warnings, ultimately contributing to a safer and healthier environment.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="team-section">
+                    <h2>About Developers</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="../static/chirag.JPG" alt="Developer 1">
+                            <h3>Chirag Gupta</h3>
+                            <p>Developer</p>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/chirag-gupta1689/" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                                <a href="https://github.com/chirag1689" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div class="team-member">
+                            <img src="../static/DSC_1451 copy.JPG" alt="Developer 2">
+                            <h3>Rishi Raj</h3>
+                            <p>Developer</p>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/rishi-raj-9110a824a/" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                                <a href="https://github.com/Corerishi" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+                            </div>
+                        </div>
+
+                        <div class="team-member">
+                            <img src="../static/profile-sabari.jpg" alt="Developer 3">
+                            <h3>Sabari Kesav S</h3>
+                            <p>Developer</p>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/sabari-k-4b440b24a/" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                                <a href="#" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="guide-section">
+                    <h2>About Guide</h2>
+                    <div class="guide-member">
+                        <img src="../static/H2.jpeg" alt="Guide">
+                        <h3>Dr. Hemanth K.S</h3>
+                        <p>Project Guide</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/dr-hemanth-k-s-643b4715/" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"><svg xmlns="" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-brand">
+                    <h2>VitalGaze</h2>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="/terms">Terms and Service</a>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/security">Security</a>
+                    <a href="/about">About</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+
+                <div class="copyright">
+                    © 2024 VitalGaze All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script  type="module" src="../static/script.js"></script>
+</body>
+</html>
